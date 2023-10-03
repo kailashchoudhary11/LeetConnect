@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-bullseye
+    ports:
+      - '5432:5432'
+
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+    
+    volumes:
+      - ./data/db:/var/lib/postgresql/data/
+
+  ui:
+    build: 
+      context: ./extension-ui
+      dockerfile: Dockerfile
+    
+    ports:
+      - '5001:5001'
+    
+    volumes:
+      - ./extension-ui:/app/ui
+    
+    depends_on:
+      - backend
+  
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+    
+    ports:
+      - '8000:8000'
+    
+    volumes:
+      - ./backend:/app/backend
+    
+    depends_on:
+      - db

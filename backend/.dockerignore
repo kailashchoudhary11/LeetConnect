@@ -1,0 +1,7 @@
+Dockerfile
+venv/
+.env
+*.log
+*.db
+db.sqlite3
+__pycache__
