@@ -1,6 +1,7 @@
 Dockerfile
 venv/
 .env
+.env.*
 *.log
 *.db
 db.sqlite3

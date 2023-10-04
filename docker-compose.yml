@@ -38,6 +38,9 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
     
+    env_file:
+      - ./backend/.env
+    
     ports:
       - '8000:8000'
     
