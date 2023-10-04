@@ -1,0 +1,30 @@
+{
+  "name": "leetconnect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker-compose build && docker-compose up -d",
+    "stop": "docker-compose down",
+    "backend-logs": "docker-compose logs -f backend",
+    "ui-logs": "docker-compose logs -f ui"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kailashchoudhary11/LeetConnect.git"
+  },
+  "keywords": [
+    "leetcode",
+    "extension",
+    "follow",
+    "search",
+    "browser",
+    "solutions"
+  ],
+  "author": "kai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kailashchoudhary11/LeetConnect/issues"
+  },
+  "homepage": "https://github.com/kailashchoudhary11/LeetConnect#readme"
+}

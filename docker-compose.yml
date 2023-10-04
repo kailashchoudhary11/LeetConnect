@@ -19,6 +19,8 @@ services:
       context: ./extension-ui
       dockerfile: Dockerfile
     
+    image: leet-ui:latest
+    
     ports:
       - '5001:5001'
     
@@ -32,6 +34,8 @@ services:
     build: 
       context: ./backend
       dockerfile: Dockerfile
+
+    image: leet-backend:latest
 
     environment:
       - POSTGRES_PASSWORD=postgres
