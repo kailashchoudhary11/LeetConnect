@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "LeetConnect",
+  "version": "1.0",
+  "description": "This is an extension for following users on LeetCode and for searching through their proposed solutions to different problems.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "index.html"
+  }
+}

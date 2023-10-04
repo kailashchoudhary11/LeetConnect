@@ -8,5 +8,6 @@ export default defineConfig({
     host: true,
     strictPort: true,
     port: 5001,
+    hmr: true,
   }
 })
