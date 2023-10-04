@@ -5,6 +5,7 @@
   "description": "This is an extension for following users on LeetCode and for searching through their proposed solutions to different problems.",
   "permissions": [
     "activeTab",
+    "tabs",
     "storage"
   ],
   "action": {

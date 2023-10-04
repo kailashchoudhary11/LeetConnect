@@ -1,5 +1,10 @@
+import FollowButton from "./components/FollowButton"
+
 function App() {
-  return <h1>This extension is super cool!</h1>
+  return <div>
+    <h1>LeetConnect</h1>
+    <FollowButton />
+  </div>
 }
 
 export default App
