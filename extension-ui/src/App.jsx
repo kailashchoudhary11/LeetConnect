@@ -5,7 +5,7 @@ import FollowButton from "./components/FollowButton";
 import FollowingList from "./components/FollowingList";
 
 function App() {
-  
+
   const [following, setFollowing] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function App() {
       if (data) {
         setFollowing(data);
       }
-    }  
+    }
     updateFollowing(); 
   }, []);
 
@@ -23,7 +23,7 @@ function App() {
     <div>
       <h1>LeetConnect</h1>
       <FollowButton following={following} setFollowing={setFollowing} />
-      <FollowingList following={following} />
+      <FollowingList following={following} setFollowing={setFollowing} />
     </div>);
 }
 
