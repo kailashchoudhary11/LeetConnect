@@ -1,15 +1,15 @@
 /*global chrome*/
-import { useState } from "react";
 
-export default function FollowButton() {
-
-  const [currentTab, setCurrentTab] = useState("");
+export default function FollowButton({ following, setFollowing }) {
 
   function handleFollow() {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+
+    chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
+
       const curTabUrl = tabs[0].url;
       const urlObj = new URL(curTabUrl);
       const host = urlObj.hostname;
+
       if (host == "leetcode.com") {
         const path = urlObj.pathname;
         const regex = /^\/([^/]+)\/$/;
@@ -17,9 +17,13 @@ export default function FollowButton() {
 
         if (match) {
           const username = match[1];
-          setCurrentTab(username);
+          if (!following.includes(username)) {
+            const updatedFollowing = [...following, username]
+            setFollowing(updatedFollowing);
+            await chrome.storage.local.set({ "following": JSON.stringify(updatedFollowing) });
+          }
         } else {
-          alert("Invalid path");
+          alert("Please open a valid leetcode profile to follow");
         }
 
       } else {
@@ -32,7 +36,6 @@ export default function FollowButton() {
       <button onClick={handleFollow}>
         Follow Now
       </button>
-      <p>The current tab is {currentTab}</p>
     </div>
   )
 }
