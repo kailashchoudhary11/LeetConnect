@@ -35,7 +35,14 @@ If you've ever pondered these questions, the solution is here! Introducing LeetC
 
 ## Contributing
 
-We welcome contributions from the open-source community! If you have ingenious ideas for new features, clever improvements, or pesky bugs to squash, please open an issue and discuss with us.
+## Contributing
+
+We welcome contributions from the open-source community! If you have ingenious ideas for new features, clever improvements, or pesky bugs to squash, please [open an issue](https://github.com/kailashchoudhary11/leetconnect/issues) and discuss with us.
+
+Before contributing, please review our [Contribution Guidelines](CONTRIBUTING.md) for detailed instructions on how to get started with development, set up your local environment, and submit your contributions.
+
+Your contributions are valuable, and we appreciate your help in making LeetConnect even better!
+
 
 ## License
 
