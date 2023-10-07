@@ -1,11 +1,11 @@
 /*global chrome*/
 
-export default function FollowButton({username, following, setFollowing }) {
+export default function FollowButton({user, following, setFollowing }) {
 
   async function handleFollow() {
 
-    if (!following.includes(username)) {
-      const updatedFollowing = [...following, username]
+    if (!following.includes(user.username)) {
+      const updatedFollowing = [...following, user.username]
       setFollowing(updatedFollowing);
       await chrome.storage.local.set({ "following": JSON.stringify(updatedFollowing) });
     }
@@ -15,8 +15,12 @@ export default function FollowButton({username, following, setFollowing }) {
   }
   return (
     <div>
+      <div>
+        <img src={user.profile.userAvatar} alt={user.username} />
+        <span>{user.profile.realName}</span>
+      </div>
       <button onClick={handleFollow}>
-        Follow {username}
+        Follow
       </button>
     </div>
   )

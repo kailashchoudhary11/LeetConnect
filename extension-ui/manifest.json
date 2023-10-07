@@ -10,5 +10,8 @@
   ],
   "action": {
     "default_popup": "index.html"
-  }
+  },
+  "host_permissions": [
+    "http://127.0.0.1:8000/*"
+  ]
 }

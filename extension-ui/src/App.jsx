@@ -3,13 +3,15 @@
 import { useEffect, useState } from "react";
 import FollowButton from "./components/FollowButton";
 import FollowingList from "./components/FollowingList";
+import axios from "axios";
+import BASE_URL from "./utils/BASE_URL";
 
 function App() {
 
-  const exclude = ["explore", "contest", "discuss", "interview", "assessment", "store", "subscribe"]
+  // const exclude = ["explore", "contest", "discuss", "interview", "assessment", "store", "subscribe"]
 
   const [following, setFollowing] = useState([]);
-  const [username, setUsername] = useState("");
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     async function updateFollowing() {
@@ -32,8 +34,10 @@ function App() {
         const match = path.match(regex);
 
         if (match) {
-          if (!exclude.includes(match[1])) {
-            setUsername(match[1]);
+          const uName = match[1];
+          const res = await axios.get(`${BASE_URL}/api/users/${uName}`);
+          if (!("error" in res.data)) {
+            setUser(res.data.data.matchedUser);
           }
         }
       }
@@ -44,7 +48,7 @@ function App() {
   return (
     <div>
       <h1>LeetConnect</h1>
-      {username && <FollowButton username={username} following={following} setFollowing={setFollowing} />}
+      {user?.username && <FollowButton user={user} following={following} setFollowing={setFollowing} />}
       <FollowingList following={following} setFollowing={setFollowing} />
     </div>);
 }
