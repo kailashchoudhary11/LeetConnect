@@ -1,4 +1,4 @@
-def get_user_solutions(username,skip=0,first=15):
+def get_user_solutions_query(username,skip=0,first=15):
     return f"""
         query {{
             userSolutionTopics(
@@ -25,3 +25,16 @@ def get_user_solutions(username,skip=0,first=15):
             }}
         }}
     """
+  
+  def get_user_details_query(username):
+  return f"""
+      query {{
+        matchedUser(username: "{username}") {{
+          username
+          profile {{
+            userAvatar
+            realName
+          }}
+        }}
+      }}
+  """

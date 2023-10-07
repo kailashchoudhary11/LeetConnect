@@ -2,6 +2,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from .utils import request_data
+from .queries import get_user_details_query
 
 @api_view(["GET"])
 def index(request):
@@ -9,18 +10,7 @@ def index(request):
 
 class UserDetails(APIView):
   def get(self, request, username):
-    print(username)
-    query = f"""
-      query {{
-        matchedUser(username: "{username}") {{
-          username
-          profile {{
-            userAvatar
-            realName
-          }}
-        }}
-      }}
-    """
+    query = get_user_details_query(username)
 
     response = request_data(request, query)
     print(response.text)
