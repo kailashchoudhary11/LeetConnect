@@ -48,31 +48,19 @@ If you're not sure how to get started, feel free to reach out to us in the [Issu
 3.  Create a `.env` file in the `backend` directory based on the provided `.env.example` file. You can copy the example file and customize it as needed.
 
 4.  To start the development server make sure you're in the root directory of the project and run the following command
-
-        ```
-        npm start
-        ```
-
-    -   The frontend will be available at http://localhost:5001.
+    
+    ```
+    npm start
+    ```
     -   The backend will be available at http://127.0.0.1:8000.
 
-### Extension Development
+### Only for first time setup
 
-If you want to test the extension locally, follow these steps:
+1. Upload the `dist` directory created in the `extension-ui` directory to your browser's extensions.
 
-1. In the root folder, build the extension:
+2. Click on "Load Unpacked" and select the `dist` directory. This step should be done only once during the initial setup.
 
-    ```
-    npm run build
-    ```
-
-2. Upload the `dist` directory created in the `extension-ui` directory to your browser's extensions.
-
-3. Click on "Load Unpacked" and select the `dist` directory. This step should be done only once during the initial setup.
-
-Whenever you make changes to the extension, run the `npm run build` command again to reflect the changes in the extension.
-
-These instructions allow you to set up both the backend and frontend locally, as well as test the extension in your browser. Make sure to create the `.env` file for the backend and customize it as needed for your local environment.
+These instructions allow you to set up the extension locally in your browser. Make sure to create the `.env` file for the backend and customize it as needed for your local environment.
 
 ## Getting Started With Contributing
 

@@ -8,7 +8,6 @@
     "stop": "docker-compose down",
     "backend-logs": "docker-compose logs -f backend",
     "ui-logs": "docker-compose logs -f ui",
-    "build": "npm --prefix extension-ui run build"
   },
   "repository": {
     "type": "git",
