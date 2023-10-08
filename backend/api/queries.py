@@ -43,3 +43,75 @@ def get_user_details_query(username):
         }}
       }}
   """
+
+
+def get_user_solutions_by_problem_query(username,questionSlug,skip=0,first=15):
+   return f"""
+        query {{
+            questionSolutions(
+                filters: {{
+                    questionSlug: {questionSlug}
+                    skip: {skip}
+                    first: {first}
+                    query: {username}
+                    languageTags: []
+                    topicTags: []
+                }}
+            ) {{
+                hasDirectResults
+                totalNum
+                solutions {{
+                    id
+                    title
+                    commentCount
+                    topLevelCommentCount
+                    viewCount
+                    pinned
+                    isFavorite
+                    solutionTags {{
+                        name
+                        slug
+                    }}
+                    post {{
+                        id
+                        voteCount
+                        voteStatus
+                        content
+                        updationDate
+                        creationDate
+                        status
+                        isHidden
+                        author {{
+                            isDiscussAdmin
+                            isDiscussStaff
+                            username
+                            nameColor
+                            activeBadge {{
+                                displayName
+                                icon
+                            }}
+                            profile {{
+                                userAvatar
+                                reputation
+                            }}
+                            isActive
+                        }}
+                        authorIsModerator
+                        isOwnPost
+                    }}
+                    searchMeta {{
+                        content
+                        contentType
+                        commentAuthor {{
+                            username
+                        }}
+                        replyAuthor {{
+                            username
+                        }}
+                        highlights
+                    }}
+                }}
+            }}
+        }}
+
+   """
