@@ -7,7 +7,7 @@
     "start": "docker-compose build && docker-compose up -d",
     "stop": "docker-compose down",
     "backend-logs": "docker-compose logs -f backend",
-    "ui-logs": "docker-compose logs -f ui",
+    "ui-logs": "docker-compose logs -f ui"
   },
   "repository": {
     "type": "git",
