@@ -13,5 +13,11 @@
   },
   "host_permissions": [
     "http://127.0.0.1:8000/*"
+  ],
+  "content_scripts": [
+    {
+      "js": ["content-scripts/main.jsx"],
+      "matches": ["https://leetcode.com/*"]
+    }
   ]
 }
