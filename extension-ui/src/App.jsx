@@ -47,7 +47,7 @@ function App() {
 
   return (
     <div>
-      <h1>LeetConnect</h1>
+      <h1 className="text-3xl font-bold underline text-center">LeetConnect</h1>
       {user?.username && <FollowButton user={user} following={following} setFollowing={setFollowing} />}
       <FollowingList following={following} setFollowing={setFollowing} />
     </div>);

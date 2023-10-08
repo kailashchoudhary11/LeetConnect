@@ -1,6 +1,6 @@
 /*global chrome*/
 
-export default function FollowButton({user, following, setFollowing }) {
+export default function FollowButton({ user, following, setFollowing }) {
 
   async function handleFollow() {
 
@@ -14,12 +14,10 @@ export default function FollowButton({user, following, setFollowing }) {
     }
   }
   return (
-    <div>
-      <div>
-        <img src={user.profile.userAvatar} alt={user.username} />
-        <span>{user.profile.realName}</span>
-      </div>
-      <button onClick={handleFollow}>
+    <div className="flex flex-col items-center">
+      <img className="rounded-full w-16 h-16" src={user.profile.userAvatar} alt={user.username} />
+      <span>{user.profile.realName}</span>
+      <button className="bg-blue-500 text-white px-4 py-2 rounded-full" onClick={handleFollow}>
         Follow
       </button>
     </div>

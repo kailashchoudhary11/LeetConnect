@@ -7,6 +7,6 @@ export default function UnFollowButton({following, setFollowing, user}) {
     await chrome.storage.local.set({ "following": JSON.stringify(updatedFollowing) });
   }
   return (
-    <button onClick={handleUnFollow}>Unfollow</button>
+    <button className="bg-gray-300 text-gray-600 px-4 py-2 rounded-full" onClick={handleUnFollow}>Unfollow</button>
   )
 }
