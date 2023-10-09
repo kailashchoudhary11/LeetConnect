@@ -50,10 +50,10 @@ def get_user_solutions_by_problem_query(username,questionSlug,skip=0,first=15):
         query {{
             questionSolutions(
                 filters: {{
-                    questionSlug: {questionSlug}
+                    questionSlug: "{questionSlug}"
                     skip: {skip}
                     first: {first}
-                    query: {username}
+                    query: "{username}"
                     languageTags: []
                     topicTags: []
                 }}

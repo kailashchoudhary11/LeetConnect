@@ -37,7 +37,7 @@ function App() {
           const uName = match[1];
           const res = await axios.get(`${BASE_URL}/api/users/${uName}`);
           if (!("error" in res.data)) {
-            setUser(res.data.data.matchedUser);
+            setUser(res.data.matchedUser);
           }
         }
       }

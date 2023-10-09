@@ -10,7 +10,7 @@ def get_csrf_token(client):
 
     return csrftoken
 
-def request_data(request, query):
+def request_data(query):
   client = requests.session()
   csrftoken = get_csrf_token(client)
   headers = {
