@@ -10,17 +10,36 @@ export default function SearchBox() {
 
     const userName = document.getElementsByClassName("text-label-3 dark:text-dark-label-3 text-xs")[0].textContent;
     const questionSlug = getSlug(searchText);
+    const questionText = searchText;
 
     setSearchText("");
 
     const res = await axios.post("https://leet-connect.onrender.com/api/solution/", { username: userName, "question-slug": questionSlug });
     const data = res.data;
 
-    const solution = data.questionSolutions.solutions[0];
-
     const container = document.getElementsByClassName("text-label-2 dark:text-dark-label-2 flex w-full items-center")[0].nextElementSibling;
-    
-    container.innerHTML = getSolutionHTML(searchText, solution);
+    let solutionsHTML = "";
+
+    if ("error" in data) {
+      console.log("Errors");
+      solutionsHTML += `
+      <div>
+        <div>
+          The solution for the given question (${questionText}) does not exist. 
+        </div>
+        <div>
+          Either the user has not solved this question or you have entered incorrect question name.
+        </div>
+      </div >
+      `
+    } else {
+      const solutions = data.questionSolutions.solutions;
+      for (let i = 0; i < solutions.length; i++) {
+        solutionsHTML += getSolutionHTML(searchText, solutions[i]);
+      }
+    }
+
+    container.innerHTML = solutionsHTML;
   }
   return (
     <div className="search-box-container">
