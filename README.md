@@ -1,6 +1,6 @@
 # LeetConnect
 
-![LeetConnect Logo](link-to-your-logo.png)
+![LeetConnect Logo](extension-ui/public/icon48.png)
 
 ## Ever wished you could do this on LeetCode?
 - Follow someone on LeetCode but couldn't find a way?
@@ -32,8 +32,6 @@ If you've ever pondered these questions, the solution is here! Introducing LeetC
 2. Log in to your LeetCode account (if not already logged in).
 
 3. Start following other users and exploring their profiles and solutions. -->
-
-## Contributing
 
 ## Contributing
 
