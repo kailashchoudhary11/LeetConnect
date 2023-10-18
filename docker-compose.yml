@@ -26,6 +26,7 @@ services:
     
     volumes:
       - ./extension-ui:/app/ui
+      - /app/ui/node_modules
     
     depends_on:
       - backend
